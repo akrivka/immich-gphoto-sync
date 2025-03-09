@@ -29,6 +29,7 @@ async def main() -> None:
             print(f"Connect to http://SERVER_IP:{args.remote_debugging_port} from another computer with Chrome")
             print(f"User data will be saved to: {USER_DATA_FOLDER}")
         
+        print("Final browser args:", browser_args)
         browser = await p.chromium.launch_persistent_context(
             user_data_dir=USER_DATA_FOLDER,
             headless=args.headless,
