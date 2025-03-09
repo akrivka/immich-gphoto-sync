@@ -3,7 +3,7 @@ from pathlib import Path
 
 IMMICH_URL = os.environ["IMMICH_URL"]
 IMMICH_API_KEY = os.environ["IMMICH_API_KEY"]
-DATA_FOLDER = Path(os.environ["DATA_FOLDER"])
+DATA_FOLDER = Path(os.environ["DATA_FOLDER"] if "DATA_FOLDER" in os.environ else "./data")
 ALBUMS_FILE = DATA_FOLDER / "albums.txt"
 USER_DATA_FOLDER = DATA_FOLDER / "usrdata"
 DB_FILE = DATA_FOLDER / "db.sqlite"
