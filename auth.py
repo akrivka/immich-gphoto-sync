@@ -36,7 +36,8 @@ async def main() -> None:
         browser_args = [
             "--disable-blink-features=AutomationControlled",
             f"--remote-debugging-port={args.remote_debugging_port}",
-            f"--remote-debugging-address={local_ip}",  # Use detected local IP
+            f"--remote-debugging-address={local_ip}",
+            f"--user-data-dir={USER_DATA_FOLDER}",  # Pass user data dir as an argument
         ]
         
         if args.headless:
@@ -52,11 +53,10 @@ async def main() -> None:
         print("Final browser args:", browser_args)
         
         try:
-            # Use launch instead of launch_persistent_context for more control
+            # Use launch with user data dir passed as an argument
             browser = await p.chromium.launch(
                 headless=args.headless,
-                args=browser_args,
-                user_data_dir=USER_DATA_FOLDER
+                args=browser_args
             )
             
             # Create a context
