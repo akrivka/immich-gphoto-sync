@@ -23,6 +23,7 @@ async def main() -> None:
             browser_args.extend([
                 f"--remote-debugging-port={args.remote_debugging_port}",
                 "--remote-debugging-address=0.0.0.0"
+                "--remote-debugging-bind-address=0.0.0.0"
             ])
             print(f"Running in headless mode with remote debugging on port {args.remote_debugging_port}")
             print(f"Connect to http://SERVER_IP:{args.remote_debugging_port} from another computer with Chrome")
