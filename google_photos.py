@@ -89,7 +89,7 @@ class GooglePhotosApi:
 async def get_google_photos_api() -> AsyncGenerator[GooglePhotosApi]:
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch_persistent_context(
-            USER_DATA_FOLDER,
+            user_data_dir=USER_DATA_FOLDER,
             headless=HEADLESS,
         )
         page = await browser.new_page()

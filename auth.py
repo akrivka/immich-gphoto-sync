@@ -29,7 +29,7 @@ async def main() -> None:
             print(f"User data will be saved to: {USER_DATA_FOLDER}")
         
         browser = await p.chromium.launch_persistent_context(
-            USER_DATA_FOLDER,
+            user_data_dir=USER_DATA_FOLDER,
             headless=args.headless,
             args=browser_args
         )
