@@ -31,7 +31,7 @@ async def main() -> None:
         browser = await p.chromium.launch_persistent_context(
             USER_DATA_FOLDER,
             headless=args.headless,
-            args=browser_args,
+            args=browser_args
         )
         page = await browser.new_page()
         await page.goto("https://photos.google.com/")
